@@ -36,7 +36,7 @@ void loop()
   Wire.endTransmission(false);
   Wire.requestFrom(MPU_addr,14,true);  //Request a Total of 14 Registers
 
-  Serial.print("#S|ARDTX|["); 
+  Serial.print("#S|ATX|["); 
   GyX=Wire.read()<<8|Wire.read();     //0x43 (GYRO_XOUT_H) & 0x44 (GYRO_XOUT_L)
   GyY=Wire.read()<<8|Wire.read();     //0x45 (GYRO_YOUT_H) & 0x46 (GYRO_YOUT_L)
   GyZ=Wire.read()<<8|Wire.read();     //0x47 (GYRO_ZOUT_H) & 0x48 (GYRO_ZOUT_L)
@@ -47,7 +47,7 @@ void loop()
   Serial.print(",");
   Serial.print(GyZ);
   //Serial.print(",");
-  delay(3000);
+  delay(1000);
   
   // #S  ->  tells gobetwino to listen
   // |ARDXL|[  ->  Gobetwino runs the ARDXL command I made,  
